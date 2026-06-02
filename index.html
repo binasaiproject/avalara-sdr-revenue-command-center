@@ -714,7 +714,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
       <tr class="hl"><td><b>US</b></td><td class="num">$13.8M</td><td class="num">10,210</td><td class="num">$385</td><td class="num">$429M</td><td class="num">$34.2M</td><td><span class="tag green">2.5x</span></td></tr>
       <tr><td><b>UK / EMEA</b></td><td class="num">$6.1M</td><td class="num">3,910</td><td class="num">$443</td><td class="num">$164M</td><td class="num">$13.1M</td><td><span class="tag amber">2.1x</span></td></tr>
       <tr><td><b>India</b></td><td class="num">$4.7M</td><td class="num">3,400</td><td class="num">$398</td><td class="num">$143M</td><td class="num">$11.8M</td><td><span class="tag blue">2.5x</span></td></tr>
-      <tr style="border-top:2px solid var(--line-2)"><td><b>GLOBAL</b></td><td class="num"><b>$24.6M</b></td><td class="num"><b>17,520</b></td><td class="num"><b>$412</b></td><td class="num"><b>$736M</b></td><td class="num"><b>$59.1M</b></td><td><span class="tag green">2.4x</span></td></tr>
+      <tr style="border-top:2px solid var(--line-2)"><td><b>GLOBAL</b></td><td class="num"><b>$24.6M</b></td><td class="num"><b>7,392</b></td><td class="num"><b>$412</b></td><td class="num"><b>$503M</b></td><td class="num"><b>$59.1M</b></td><td><span class="tag green">2.4x</span></td></tr>
     </table>
   </div>
 </section>
@@ -739,14 +739,14 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   <div class="grid g2">
     <div class="card accent">
       <h3>Headcount by Region &amp; Role</h3>
-      <div class="csub">Current state · 4 directors, multi-level</div>
+      <div class="csub">SDRs · BDRs · ADRs · Managers · Directors by region</div>
       <div class="chart-box" style="height:260px"><canvas id="chartHC"></canvas></div>
     </div>
     <div class="card">
       <h3>Ramp Curve Model</h3>
       <div class="csub">SQL productivity by tenure month</div>
       <div class="chart-box" style="height:260px"><canvas id="chartRamp"></canvas></div>
-      <p class="fineprint">New hires reach ~30% productivity by month 2, full productivity by month 4–5. Every hiring plan rolls up to this curve.</p>
+      <p class="fineprint">SMB/inbound SDRs ramp faster (full quota by M6); BDR/Enterprise track takes ~7 months due to longer deal cycles and deeper account research requirements.</p>
     </div>
   </div>
 
@@ -1429,26 +1429,27 @@ const charts={
   },
   capacity(){
     once('chartHC',()=>new Chart(document.getElementById('chartHC'),{type:'bar',
-      data:{labels:['US','UK / EMEA','India'],datasets:[
-        {label:'SDRs',data:[100,42,44],backgroundColor:ORANGE,borderRadius:4,stack:'s'},
-        {label:'Managers',data:[11,5,9],backgroundColor:BLUE,borderRadius:4,stack:'s'},
-        {label:'Directors',data:[1,1,1],backgroundColor:INK,borderRadius:4,stack:'s'}
-      ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:gridStyle}}}}));
+      data:{labels:['US East','US West','UK / EMEA','India'],datasets:[
+        {label:'SDRs / BDRs / ADRs',data:[62,50,48,54],backgroundColor:ORANGE,borderRadius:4,stack:'s'},
+        {label:'Frontline Managers',data:[6,5,5,5],backgroundColor:BLUE,borderRadius:4,stack:'s'},
+        {label:'Directors',data:[1,1,1,1],backgroundColor:INK,borderRadius:4,stack:'s'}
+      ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,grid:gridStyle,title:{display:true,text:'Headcount'}}}}}));
     once('chartRamp',()=>new Chart(document.getElementById('chartRamp'),{type:'line',
-      data:{labels:['M1','M2','M3','M4','M5','M6'],datasets:[
-        {label:'SQL Productivity %',data:[8,30,58,85,98,100],borderColor:ORANGE,backgroundColor:'rgba(255,90,31,.12)',fill:true,tension:.4,borderWidth:3,pointRadius:3,pointBackgroundColor:ORANGE}
-      ]},options:{maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{grid:gridStyle,max:110,ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}}));
+      data:{labels:['M1','M2','M3','M4','M5','M6','M7'],datasets:[
+        {label:'SDR / SMB Track',data:[10,28,55,80,92,100,100],borderColor:ORANGE,backgroundColor:'rgba(255,90,31,.10)',fill:true,tension:.4,borderWidth:3,pointRadius:4,pointBackgroundColor:ORANGE},
+        {label:'BDR / Enterprise Track',data:[5,18,40,65,82,94,100],borderColor:BLUE,backgroundColor:'rgba(0,110,220,.07)',fill:true,tension:.4,borderWidth:3,pointRadius:4,pointBackgroundColor:BLUE,borderDash:[4,3]}
+      ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{grid:gridStyle,max:115,ticks:{callback:v=>v+'%'},title:{display:true,text:'% of Full Quota'}},x:{grid:{display:false}}}}}));
   },
   recruiting(){
     once('chartReadiness',()=>new Chart(document.getElementById('chartReadiness'),{type:'bar',
-      data:{labels:['1–2 / 5','3 / 5','4 / 5','5 / 5'],datasets:[
-        {label:'Reps',data:[28,71,54,23],backgroundColor:['#B6BAC6',BLUE_B,ORANGE,GOOD],borderRadius:5}
+      data:{labels:['1–2 / 6','3–4 / 6','5 / 6','6 / 6'],datasets:[
+        {label:'Reps',data:[31,68,52,23],backgroundColor:['#B6BAC6',BLUE_B,ORANGE,GOOD],borderRadius:5}
       ]},options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+' reps'}}},scales:{y:{grid:gridStyle,title:{display:true,text:'# of reps'}},x:{grid:{display:false}}}}}));
   },
   pnl(){
     once('chartPnL',()=>new Chart(document.getElementById('chartPnL'),{type:'bar',
       data:{labels:['Spend','Pipeline Created','Won Revenue'],datasets:[
-        {label:'$M',data:[24.6,736,59.1],backgroundColor:[INK,BLUE_B,GOOD],borderRadius:6}
+        {label:'$M',data:[24.6,503,59.1],backgroundColor:[INK,BLUE_B,GOOD],borderRadius:6}
       ]},options:{maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y+'M'}}},scales:{y:{type:'logarithmic',grid:gridStyle,ticks:{callback:v=>'$'+v+'M'}},x:{grid:{display:false}}}}}));
     once('chartBudget',()=>new Chart(document.getElementById('chartBudget'),{type:'doughnut',
       data:{labels:['Comp & Benefits','Tooling / Tech','Programs / Enablement','Travel / Events','Mgmt Overhead'],datasets:[{data:[68,11,8,5,8],backgroundColor:[ORANGE,BLUE,BLUE_B,GOOD,'#B6BAC6'],borderWidth:3,borderColor:'#fff'}]},
