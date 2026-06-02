@@ -1087,8 +1087,8 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
       <div class="agent-top"><div class="a-ico">📘</div><span class="a-status live-badge">⚡ Live</span><h3>Playbook Builder</h3><div class="a-role">Territory &amp; Account Strategy</div></div>
       <div class="agent-body"><p class="a-desc">Drafts a territory playbook — whitespace, competitive detail, ranked target list, and certification pre-fill.</p>
         <ul class="agent-feats"><li>Auto-whitespaces the book of business</li><li>Ranks top &amp; next-best accounts</li><li>Pre-fills playbook certification fields</li></ul></div>
-      <div class="agent-io"><div class="io-lab">Input — territory or account segment</div>
-        <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market Manufacturing, Northeast — 240 accounts"></textarea>
+      <div class="agent-io"><div class="io-lab">Input — territory or account segment <button onclick="loadPlaybookSample(this)" style="margin-left:8px;font-size:10px;padding:2px 8px;border:1px solid var(--av-orange);color:var(--av-orange);background:none;border-radius:4px;cursor:pointer;font-family:inherit">⬇ Load Sample File</button></div>
+        <textarea class="agent-input" rows="3" placeholder="Paste your territory brief here, or click Load Sample File above…"></textarea>
         <button class="agent-run" onclick="runPlaybook(this)">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
@@ -1481,6 +1481,28 @@ function runAgent(btn,msg){
   },1500);
 }
 // ===== PLAYBOOK BUILDER — LIVE CLAUDE AGENT =====
+async function loadPlaybookSample(btn){
+  btn.textContent='Loading…';
+  btn.disabled=true;
+  try{
+    const r=await fetch('/samples/playbook-territory-sample.txt');
+    const text=await r.text();
+    btn.closest('.agent-io').querySelector('.agent-input').value=text;
+    btn.textContent='✓ Loaded';
+  }catch(e){
+    btn.textContent='Error';
+  }
+  setTimeout(()=>{btn.textContent='⬇ Load Sample File';btn.disabled=false;},2000);
+}
+
+function downloadCsv(csv,filename){
+  const blob=new Blob([csv],{type:'text/csv'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download=filename;a.click();
+  URL.revokeObjectURL(url);
+}
+
 async function runPlaybook(btn){
   const io=btn.closest('.agent-io');
   const out=io.querySelector('.agent-out');
@@ -1488,13 +1510,14 @@ async function runPlaybook(btn){
   const territory=input?input.value.trim():'';
   if(!territory){
     out.classList.add('show');
-    out.innerHTML='<b style="color:#e8520a">Please describe your territory or account segment above before running the agent.</b>';
+    out.innerHTML='<b style="color:#e8520a">Please paste your territory brief or click Load Sample File above before running the agent.</b>';
     return;
   }
   out.classList.add('show');
   out.innerHTML='<span style="color:#6b7280">Building your playbook…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;
   btn.textContent='⏳ Running…';
+  let csvData=null, territoryName='playbook';
   try{
     const resp=await fetch('/api/playbook',{
       method:'POST',
@@ -1503,7 +1526,11 @@ async function runPlaybook(btn){
     });
     const data=await resp.json();
     if(data.html){
-      out.innerHTML=data.html;
+      csvData=data.csv||null;
+      territoryName=data.territory||'playbook';
+      const csvBtn=csvData?`<br><br><button onclick="downloadCsv(window.__lastPlaybookCsv,'${territoryName.replace(/[^a-z0-9]/gi,'-').toLowerCase()}-playbook.csv')" style="font-size:11px;padding:6px 14px;background:#16a34a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">⬇ Download CSV</button>`:'';
+      window.__lastPlaybookCsv=csvData;
+      out.innerHTML=data.html+csvBtn;
     }else{
       out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';
     }
