@@ -303,6 +303,14 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
 </style>
 </head>
 <script defer src="/_vercel/insights/script.js"></script>
+<script>
+// Unified tracking helper — fires Vercel Analytics custom events when available
+function track(event, props){
+  try{
+    if(window.va) window.va('event',{name:event,...(props||{})});
+  }catch(e){}
+}
+</script>
 <body>
 
 <header>
@@ -1120,7 +1128,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Matches objection to the right battlecard</li><li>Surfaces a proof point or customer reference</li><li>Returns a reframe + recommended next step</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — the objection</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. 'We already handle tax in-house with our ERP.'"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Processing objection…','objection_handler')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1130,7 +1138,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Scores Why-Buys captured on the call</li><li>Flags missed discovery &amp; next steps</li><li>Drafts the coaching note for the manager</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — call summary or transcript snippet</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. 20-min discovery with VP Tax, discussed ERP upgrade, no next step set"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Analyzing call…','call_coach')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1140,7 +1148,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Identifies the right partner contact to engage</li><li>Drafts the joint value prop for the account</li><li>Returns the recommended co-sell sequence</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — partner name + account context</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. SAP SI partner, customer migrating to S/4HANA, manufacturing vertical"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Building partner brief…','partner_intelligence')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1150,7 +1158,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Identifies economic buyer, champion, blocker</li><li>Suggests outreach order &amp; timing</li><li>Returns persona-specific message for each contact</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — company + deal context</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. Enterprise retailer, SAP migration, no champion yet"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Mapping stakeholders…','multithread_mapper')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1160,7 +1168,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Pinpoints conversion drop-offs by stage &amp; segment</li><li>Identifies reps or territories underperforming</li><li>Returns a prioritized fix list for the manager</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — segment or pipeline question</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market SAL→SQL is lagging vs plan this quarter"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Diagnosing pipeline…','pipeline_gap_analyzer')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1170,7 +1178,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Monitors ERP migration and nexus expansion signals</li><li>Scores urgency and routes to the right SDR</li><li>Suggests the trigger-led play to run</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — industry or account set to monitor</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. Manufacturing accounts, Midwest, SAP ECC customers"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Scanning signals…','intent_trigger_monitor')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1180,7 +1188,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Scores candidates for coachability &amp; slope</li><li>Generates a 6-week ramp plan per hire</li><li>Flags readiness gaps vs all 6 criteria</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — candidate or new-hire profile</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. New BDR, 1yr SaaS outbound, strong cold call, weak discovery"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Evaluating candidate…','recruiting_onboarding')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1190,7 +1198,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Auto-whitespaces the book of business</li><li>Ranks top &amp; next-best accounts</li><li>Pre-fills playbook certification fields</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — territory or account segment</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market Manufacturing, Northeast — 240 accounts"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAgent(this,'Drafting playbook…','playbook_builder_demo')">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1382,6 +1390,7 @@ tabs.forEach((t,i)=>{
     document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));
     b.classList.add('active');
     document.getElementById(t.id).classList.add('active');
+    track('tab_view',{tab:t.id,label:t.l});
     window.scrollTo({top:0,behavior:'smooth'});
     // Wait for display:block to fully paint before Chart.js measures canvas dims
     setTimeout(()=>{
@@ -1465,7 +1474,8 @@ const charts={
 charts.overview();
 
 // ===== AI AGENT PLACEHOLDER INTERACTION =====
-function runAgent(btn,msg){
+function runAgent(btn,msg,agentName){
+  track('agent_run_start',{agent:agentName||'placeholder',mode:'demo'});
   const io=btn.closest('.agent-io');
   const out=io.querySelector('.agent-out');
   const input=io.querySelector('.agent-input');
@@ -1474,6 +1484,7 @@ function runAgent(btn,msg){
   btn.disabled=true;
   btn.innerHTML='<span class="lock">⏳</span> Processing…';
   setTimeout(()=>{
+    track('agent_run_success',{agent:agentName||'placeholder',mode:'demo'});
     const sample=input&&input.value.trim()?'':' Add an input above to see how the agent would respond.';
     out.innerHTML='<b style="color:var(--av-orange)">⚙ DEMO MODE — Agent under development.</b><br>This is where the agent\u2019s structured output would appear (summary, recommended actions, and a confidence score) once wired to live models &amp; data. A manager reviews and approves before anything reaches a customer.'+sample;
     btn.disabled=false;
@@ -1496,6 +1507,7 @@ async function loadPlaybookSample(btn){
 }
 
 function downloadCsv(csv,filename){
+  track('csv_download',{filename});
   const blob=new Blob([csv],{type:'text/csv'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
@@ -1513,6 +1525,7 @@ async function runPlaybook(btn){
     out.innerHTML='<b style="color:#e8520a">Please paste your territory brief or click Load Sample File above before running the agent.</b>';
     return;
   }
+  track('agent_run_start',{agent:'playbook'});
   out.classList.add('show');
   out.innerHTML='<span style="color:#6b7280">Building your playbook…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;
@@ -1531,11 +1544,14 @@ async function runPlaybook(btn){
       const csvBtn=csvData?`<br><br><button onclick="downloadCsv(window.__lastPlaybookCsv,'${territoryName.replace(/[^a-z0-9]/gi,'-').toLowerCase()}-playbook.csv')" style="font-size:11px;padding:6px 14px;background:#16a34a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">⬇ Download CSV</button>`:'';
       window.__lastPlaybookCsv=csvData;
       out.innerHTML=data.html+csvBtn;
+      track('agent_run_success',{agent:'playbook',territory:territoryName});
     }else{
       out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';
+      track('agent_run_error',{agent:'playbook',error:data.error||'unknown'});
     }
   }catch(e){
     out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';
+    track('agent_run_error',{agent:'playbook',error:'network'});
   }
   btn.disabled=false;
   btn.textContent='▶ Run Agent';
@@ -1548,6 +1564,7 @@ async function runAccount(btn){
   const input=io.querySelector('.agent-input');
   const account=input?input.value.trim():'';
   if(!account){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter a company name or account description.</b>';return;}
+  track('agent_run_start',{agent:'account_research'});
   out.classList.add('show');
   out.innerHTML='<span style="color:#6b7280">Researching account…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;btn.textContent='⏳ Running…';
@@ -1558,8 +1575,9 @@ async function runAccount(btn){
       window.__lastAccountCsv=data.csv;window.__lastAccountCo=data.company;
       const csvBtn=data.csv?`<br><br><button onclick="downloadCsv(window.__lastAccountCsv,'${(data.company||'account').replace(/[^a-z0-9]/gi,'-').toLowerCase()}-research.csv')" style="font-size:11px;padding:6px 14px;background:#16a34a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">⬇ Download CSV</button>`:'';
       out.innerHTML=data.html+csvBtn;
-    }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
-  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
+      track('agent_run_success',{agent:'account_research',company:data.company||''});
+    }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';track('agent_run_error',{agent:'account_research',error:data.error||'unknown'});}
+  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';track('agent_run_error',{agent:'account_research',error:'network'});}
   btn.disabled=false;btn.textContent='▶ Run Agent';
 }
 
@@ -1570,15 +1588,16 @@ async function runPersona(btn){
   const input=io.querySelector('.agent-input');
   const persona=input?input.value.trim():'';
   if(!persona){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter a buyer role and industry.</b>';return;}
+  track('agent_run_start',{agent:'persona_messaging'});
   out.classList.add('show');
   out.innerHTML='<span style="color:#6b7280">Building persona…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;btn.textContent='⏳ Running…';
   try{
     const resp=await fetch('/api/persona',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({persona})});
     const data=await resp.json();
-    if(data.html){out.innerHTML=data.html;}
-    else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
-  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
+    if(data.html){out.innerHTML=data.html;track('agent_run_success',{agent:'persona_messaging'});}
+    else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';track('agent_run_error',{agent:'persona_messaging',error:data.error||'unknown'});}
+  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';track('agent_run_error',{agent:'persona_messaging',error:'network'});}
   btn.disabled=false;btn.textContent='▶ Run Agent';
 }
 
@@ -1589,6 +1608,7 @@ async function runEmail(btn){
   const input=io.querySelector('.agent-input');
   const context=input?input.value.trim():'';
   if(!context){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter an account brief or trigger context.</b>';return;}
+  track('agent_run_start',{agent:'email_personalizer'});
   out.classList.add('show');
   out.innerHTML='<span style="color:#6b7280">Drafting email…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;btn.textContent='⏳ Running…';
@@ -1596,11 +1616,12 @@ async function runEmail(btn){
     const resp=await fetch('/api/email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({context})});
     const data=await resp.json();
     if(data.html){
-      const copyBtn=`<br><br><button onclick="navigator.clipboard.writeText(window.__lastEmail||'').then(()=>this.textContent='✓ Copied!')" style="font-size:11px;padding:6px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">📋 Copy Email</button>`;
+      const copyBtn=`<br><br><button onclick="navigator.clipboard.writeText(window.__lastEmail||'').then(()=>{this.textContent='✓ Copied!';track('email_copy',{agent:'email_personalizer'});}).catch(()=>{})" style="font-size:11px;padding:6px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">📋 Copy Email</button>`;
       window.__lastEmail=(data.email_body||'');
       out.innerHTML=data.html+copyBtn;
-    }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
-  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
+      track('agent_run_success',{agent:'email_personalizer'});
+    }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';track('agent_run_error',{agent:'email_personalizer',error:data.error||'unknown'});}
+  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';track('agent_run_error',{agent:'email_personalizer',error:'network'});}
   btn.disabled=false;btn.textContent='▶ Run Agent';
 }
 
