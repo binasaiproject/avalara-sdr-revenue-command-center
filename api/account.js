@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+const Anthropic = require("@anthropic-ai/sdk");
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -85,7 +85,7 @@ function toCsv(d) {
   return rows.join('\r\n');
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
   const { account } = req.body || {};
   if (!account || account.trim().length < 2) return res.status(400).json({ error: 'Please provide a company name or account description.' });

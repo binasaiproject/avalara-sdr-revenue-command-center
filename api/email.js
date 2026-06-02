@@ -1,4 +1,4 @@
-import Anthropic from "@anthropic-ai/sdk";
+const Anthropic = require("@anthropic-ai/sdk");
 
 const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
@@ -70,7 +70,7 @@ ${emailLines}
 <span style="color:#6b7280;font-size:.75rem">⚙ Live Agent · Confidence ${d.confidence}%</span>`;
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
   const { context } = req.body || {};
   if (!context || context.trim().length < 2) return res.status(400).json({ error: 'Please provide an account brief or trigger context.' });
