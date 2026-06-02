@@ -677,15 +677,51 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
     <div class="legend"><span><span class="dot" style="background:var(--av-orange)"></span>Customer-facing</span><span><span class="dot" style="background:var(--av-blue-bright)"></span>Internal review</span><span><span class="dot" style="background:var(--ink)"></span>Operational action</span></div>
     <p class="fineprint">Adapted from the FY26 deal-grade framework I built at Oracle. The "Why Buys" qualification (Anything / Now / Vendor) is what separates a logged activity from a real SQL — and it's coachable, gradeable, and auditable.</p>
   </div>
+
+  <div class="section-label">02 · P&amp;L &amp; Unit Economics</div>
+
+  <div class="grid g4">
+    <div class="kpi"><div class="klab">SDR Org Budget</div><div class="kval">$24.6M</div><div class="ksub">fully loaded · annual</div><span class="delta flat">on plan</span></div>
+    <div class="kpi"><div class="klab">Pipeline ROI</div><div class="kval">8.5x</div><div class="ksub">$ pipeline : $ spend</div><span class="delta up">▲ 1.2x</span></div>
+    <div class="kpi"><div class="klab">Revenue ROI</div><div class="kval">2.4x</div><div class="ksub">won rev : spend</div><span class="delta up">▲ 0.3x</span></div>
+    <div class="kpi"><div class="klab">Cost per SQL</div><div class="kval">$412</div><div class="ksub">trending down</div><span class="delta up">▼ 11%</span></div>
+  </div>
+
+  <div class="grid g3">
+    <div class="card accent span2">
+      <h3>Spend-to-Revenue Bridge</h3>
+      <div class="csub">Where the SDR dollar goes &amp; what it returns · annual</div>
+      <div class="chart-box" style="height:280px"><canvas id="chartPnL"></canvas></div>
+    </div>
+    <div class="card">
+      <h3>Budget Allocation</h3>
+      <div class="csub">$24.6M deployed</div>
+      <div class="chart-box" style="height:280px"><canvas id="chartBudget"></canvas></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Unit Economics by Region</h3>
+    <div class="csub">The numbers I bring to the Finance &amp; RevOps table</div>
+    <table>
+      <tr><th>Region</th><th>Spend</th><th>SQLs</th><th>Cost/SQL</th><th>Pipeline</th><th>Won Rev</th><th>Rev ROI</th></tr>
+      <tr class="hl"><td><b>US</b></td><td class="num">$13.8M</td><td class="num">10,210</td><td class="num">$385</td><td class="num">$429M</td><td class="num">$34.2M</td><td><span class="tag green">2.5x</span></td></tr>
+      <tr><td><b>UK / EMEA</b></td><td class="num">$6.1M</td><td class="num">3,910</td><td class="num">$443</td><td class="num">$164M</td><td class="num">$13.1M</td><td><span class="tag amber">2.1x</span></td></tr>
+      <tr><td><b>India</b></td><td class="num">$4.7M</td><td class="num">3,400</td><td class="num">$398</td><td class="num">$143M</td><td class="num">$11.8M</td><td><span class="tag blue">2.5x</span></td></tr>
+      <tr style="border-top:2px solid var(--line-2)"><td><b>GLOBAL</b></td><td class="num"><b>$24.6M</b></td><td class="num"><b>17,520</b></td><td class="num"><b>$412</b></td><td class="num"><b>$736M</b></td><td class="num"><b>$59.1M</b></td><td><span class="tag green">2.4x</span></td></tr>
+    </table>
+  </div>
 </section>
 
-<!-- ============ TAB 3: GLOBAL CAPACITY & HEADCOUNT ============ -->
-<section class="panel" id="capacity">
+<!-- ============ TAB 4: PEOPLE & ORG (was Capacity + Recruiting + Org) ============ -->
+<section class="panel" id="people">
   <div class="panel-head">
-    <div class="eyebrow">Capacity, Ramp &amp; Headcount Planning</div>
-    <h2>Every hire defended with a SQL and a revenue number.</h2>
-    <p class="lede">Disciplined hiring aligned to a capacity model — built with Finance &amp; RevOps so the pipeline forecast reflects real performance drivers, not optimism.</p>
+    <div class="eyebrow">People, Org &amp; Capacity Planning</div>
+    <h2>Every hire defended, every rep developed, every leader on a succession path.</h2>
+    <p class="lede">The talent operating system — capacity model, recruiting mindset, onboarding, readiness reviews, and org succession — all in one place. This is how a 200-person global SDR floor runs.</p>
   </div>
+
+  <div class="section-label">01 · Capacity &amp; Headcount</div>
 
   <div class="grid g4">
     <div class="kpi"><div class="klab">Global Headcount</div><div class="kval">214</div><div class="ksub">across US · UK · India</div><span class="delta up">▲ 18 net new</span></div>
@@ -720,15 +756,8 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
     </table>
     <p class="fineprint">India is the build market — expanded outbound capability + second-line leadership is the unlock for the next phase of capacity.</p>
   </div>
-</section>
 
-<!-- ============ TAB 4: RECRUITING & ONBOARDING ============ -->
-<section class="panel" id="recruiting">
-  <div class="panel-head">
-    <div class="eyebrow">Recruiting Mindset · Onboarding · Readiness</div>
-    <h2>Hire for slope, ramp with rigor, promote against a clear bar.</h2>
-    <p class="lede">The talent system I've actually run — adapted from the FY26 SDR Kickoff I authored at Oracle. A defined recruiting mindset, a structured Fast Start onboarding path, and a 5/5 Readiness Review that makes promotion eligibility transparent and defensible.</p>
-  </div>
+  <div class="section-label">02 · Recruiting, Onboarding &amp; Readiness</div>
 
   <div class="grid g4">
     <div class="kpi"><div class="klab">Time-to-Productivity</div><div class="kval">4.2<small style="font-size:18px"> mo</small></div><div class="ksub">via Fast Start track</div><span class="delta up">▼ 0.8 mo</span></div>
@@ -862,15 +891,8 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 
   <div class="disclaimer">⚠ Frameworks (Readiness Review criteria, Fast Start, lead SLAs, certification gates) are adapted from the FY26 SDR Kickoff Bina authored at Oracle. Cohort counts &amp; distribution figures here are illustrative for the Avalara model.</div>
-</section>
 
-<!-- ============ TAB 5: GLOBAL ORG & SUCCESSION ============ -->
-<section class="panel" id="org">
-  <div class="panel-head">
-    <div class="eyebrow">Leadership, Org Design &amp; Succession</div>
-    <h2>Building the bench, not just hitting the number.</h2>
-    <p class="lede">Lead 4 directors and multi-level teams across three geos. Strong skip-level engagement, a manager-in-training pipeline, and second-line leadership strength — especially in India.</p>
-  </div>
+  <div class="section-label">03 · Org Design &amp; Succession</div>
 
   <div class="card">
     <h3>Global Org Structure</h3>
@@ -918,12 +940,12 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 </section>
 
-<!-- ============ TAB 5: COMPETITIVE & OUTREACH ============ -->
-<section class="panel" id="competitive">
+<!-- ============ TAB 5: GTM PLAYBOOK ============ -->
+<section class="panel" id="gtm">
   <div class="panel-head">
-    <div class="eyebrow">Outreach Playbooks &amp; Competitive Intelligence</div>
+    <div class="eyebrow">GTM Playbook — Outreach, Competitive &amp; Enablement</div>
     <h2>The material I'd put in my team's hands on day one.</h2>
-    <p class="lede">Outbound only works when reps have the messaging, the battlecards, and the AI leverage to move fast. Here's the enablement system that compounds fundamentals.</p>
+    <p class="lede">Outbound only works when reps have the messaging, the battlecards, and the AI leverage to move fast. Industry-specific plays, persona targeting, and a full sales play asset library — the enablement system that compounds fundamentals.</p>
   </div>
 
   <div class="grid g2">
@@ -1235,54 +1257,15 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   <div class="disclaimer">⚠ UNDER DEVELOPMENT — Agent interfaces are functional mockups; "Run" buttons are placeholders pending integration with live models, CRM &amp; enablement data. The −35% research-time and +18% reply-rate figures are real outcomes from AI agents Bina operationalized at Oracle.</div>
 </section>
 
-<!-- ============ TAB 8: P&L & REVENUE ============ -->
-<section class="panel" id="pnl">
+<!-- ============ TAB 6: CULTURE & TEAM ============ -->
+<section class="panel" id="culture">
   <div class="panel-head">
-    <div class="eyebrow">P&amp;L Management &amp; Revenue Tracking</div>
-    <h2>Run the SDR org like a business unit — efficiency, not just output.</h2>
-    <p class="lede">Defending coverage during tight quarters means knowing your unit economics cold. ROI per dollar of SDR spend, fully-loaded cost per SQL, and a clear line to revenue.</p>
+    <div class="eyebrow">Culture, Accountability &amp; Team Performance</div>
+    <h2>Rigor and humanity are not a tradeoff — and a winning culture shows up in the numbers.</h2>
+    <p class="lede">The best SDR floors combine relentless operational discipline with genuine care for early-career talent. A visible scoreboard, a coaching culture, and a clear path up — that's how you retain people and sustain performance.</p>
   </div>
 
-  <div class="grid g4">
-    <div class="kpi"><div class="klab">SDR Org Budget</div><div class="kval">$24.6M</div><div class="ksub">fully loaded · annual</div><span class="delta flat">on plan</span></div>
-    <div class="kpi"><div class="klab">Pipeline ROI</div><div class="kval">8.5x</div><div class="ksub">$ pipeline : $ spend</div><span class="delta up">▲ 1.2x</span></div>
-    <div class="kpi"><div class="klab">Revenue ROI</div><div class="kval">2.4x</div><div class="ksub">won rev : spend</div><span class="delta up">▲ 0.3x</span></div>
-    <div class="kpi"><div class="klab">Cost per SQL</div><div class="kval">$412</div><div class="ksub">trending down</div><span class="delta up">▼ 11%</span></div>
-  </div>
-
-  <div class="grid g3">
-    <div class="card accent span2">
-      <h3>Spend-to-Revenue Bridge</h3>
-      <div class="csub">Where the SDR dollar goes &amp; what it returns · annual</div>
-      <div class="chart-box" style="height:280px"><canvas id="chartPnL"></canvas></div>
-    </div>
-    <div class="card">
-      <h3>Budget Allocation</h3>
-      <div class="csub">$24.6M deployed</div>
-      <div class="chart-box" style="height:280px"><canvas id="chartBudget"></canvas></div>
-    </div>
-  </div>
-
-  <div class="card">
-    <h3>Unit Economics by Region</h3>
-    <div class="csub">The numbers I bring to the Finance &amp; RevOps table</div>
-    <table>
-      <tr><th>Region</th><th>Spend</th><th>SQLs</th><th>Cost/SQL</th><th>Pipeline</th><th>Won Rev</th><th>Rev ROI</th></tr>
-      <tr class="hl"><td><b>US</b></td><td class="num">$13.8M</td><td class="num">10,210</td><td class="num">$385</td><td class="num">$429M</td><td class="num">$34.2M</td><td><span class="tag green">2.5x</span></td></tr>
-      <tr><td><b>UK / EMEA</b></td><td class="num">$6.1M</td><td class="num">3,910</td><td class="num">$443</td><td class="num">$164M</td><td class="num">$13.1M</td><td><span class="tag amber">2.1x</span></td></tr>
-      <tr><td><b>India</b></td><td class="num">$4.7M</td><td class="num">3,400</td><td class="num">$398</td><td class="num">$143M</td><td class="num">$11.8M</td><td><span class="tag blue">2.5x</span></td></tr>
-      <tr style="border-top:2px solid var(--line-2)"><td><b>GLOBAL</b></td><td class="num"><b>$24.6M</b></td><td class="num"><b>17,520</b></td><td class="num"><b>$412</b></td><td class="num"><b>$736M</b></td><td class="num"><b>$59.1M</b></td><td><span class="tag green">2.4x</span></td></tr>
-    </table>
-  </div>
-</section>
-
-<!-- ============ TAB 7: GAMIFICATION ============ -->
-<section class="panel" id="gamification">
-  <div class="panel-head">
-    <div class="eyebrow">Gamification &amp; Daily Accountability</div>
-    <h2>Make the scoreboard visible, the standards clear, the wins loud.</h2>
-    <p class="lede">High-energy doesn't mean unstructured. A points system tied to the behaviors that drive SQLs — not vanity activity — keeps the floor competitive and the culture alive.</p>
-  </div>
+  <div class="section-label">01 · Gamification &amp; Daily Accountability</div>
 
   <div class="grid g3">
     <div class="card span2 accent">
@@ -1361,15 +1344,8 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
       <p class="fineprint">Visible scoreboards correlate with higher activity compliance &amp; lower attrition on the floor.</p>
     </div>
   </div>
-</section>
 
-<!-- ============ TAB 8: CULTURE ============ -->
-<section class="panel" id="culture">
-  <div class="panel-head">
-    <div class="eyebrow">Building a Culture That Thrives</div>
-    <h2>Rigor and humanity are not a tradeoff.</h2>
-    <p class="lede">High standards <em>and</em> high support. The best SDR floors I've built combine relentless operational discipline with genuine care for early-career talent. That's how you stabilize an org and make people want to stay.</p>
-  </div>
+  <div class="section-label">02 · Values &amp; Leadership Philosophy</div>
 
   <div class="quote">
     <p>High emotional intelligence paired with high standards of accountability. A leader who models ownership and urgency — and a builder who respects fundamentals.</p>
@@ -1436,15 +1412,11 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
 const tabs=[
   {id:'overview',n:'01',l:'Command Overview'},
   {id:'alliances',n:'02',l:'Alliances'},
-  {id:'pipeline',n:'03',l:'Pipeline Waterfall'},
-  {id:'capacity',n:'04',l:'Capacity & Headcount'},
-  {id:'recruiting',n:'05',l:'Recruiting & Onboarding'},
-  {id:'org',n:'06',l:'Org & Succession'},
-  {id:'competitive',n:'07',l:'Outreach & Competitive'},
-  {id:'aiagents',n:'08',l:'AI Agents'},
-  {id:'pnl',n:'09',l:'P&L & Revenue'},
-  {id:'gamification',n:'10',l:'Gamification'},
-  {id:'culture',n:'11',l:'Culture'}
+  {id:'pipeline',n:'03',l:'Pipeline & Revenue'},
+  {id:'people',n:'04',l:'People & Org'},
+  {id:'gtm',n:'05',l:'GTM Playbook'},
+  {id:'aiagents',n:'06',l:'AI Agents'},
+  {id:'culture',n:'07',l:'Culture & Team'}
 ];
 const nav=document.getElementById('nav');
 tabs.forEach((t,i)=>{
