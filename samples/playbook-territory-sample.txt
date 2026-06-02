@@ -1,0 +1,55 @@
+AVALARA SDR — TERRITORY BRIEF
+BDR: Jordan Kim  |  Segment: Mid-Market Manufacturing  |  Region: Midwest  |  Quarter: Q3 2026
+
+TERRITORY SUMMARY
+-----------------
+Total accounts in book: 187
+Revenue band: $25M – $200M
+Verticals: Industrial Manufacturing, Metals & Fabrication, Automotive Parts, Food Processing
+Key states: OH, MI, IN, WI, MN, MO
+Assigned motion: BDR Outbound — cold call + email sequence
+
+TOP ACCOUNTS (prioritize these 10 first)
+-----------------------------------------
+Account Name          | Est. Revenue | ERP System          | HQ State | Known Trigger
+----------------------|--------------|---------------------|----------|---------------------------------
+Midwest Castings Co   | $145M        | SAP ECC 6.0         | OH       | S/4HANA migration RFP issued
+Great Lakes Steel     | $98M         | Oracle EBS 12.2     | MI       | New VP Tax hired in April
+Precision Forge Inc   | $72M         | SAP ECC 6.0 EHP8    | IN       | Expanding to TX, FL, GA Q3
+Harbor Metals         | $61M         | Infor CloudSuite     | WI       | Audit finding — 3 states
+Apex Auto Parts       | $55M         | SAP S/4HANA (live)  | MI       | Post-go-live tax engine gap
+Twin Cities Machining | $48M         | NetSuite             | MN       | Adding 4 new distribution centers
+Buckeye Industrial    | $42M         | QuickBooks + custom  | OH       | Manual returns, 9 states
+Heartland Food Mfg    | $38M         | Oracle NetSuite      | MO       | Exemption cert backlog reported
+Central Stamping      | $31M         | Sage 100             | IN       | CPA flagged nexus exposure
+Lakewood Fabricators  | $27M         | Microsoft D365       | WI       | D365 Tax module failing
+
+COMPETITIVE LANDSCAPE
+---------------------
+- Vertex: Installed at Midwest Castings, Great Lakes Steel (both SAP shops — embedded in ECC)
+- TaxJar: Installed at Twin Cities Machining, Heartland Food (likely outgrown at their revenue)
+- DIY / In-house: Buckeye Industrial, Central Stamping, Lakewood Fabricators
+- Sovos: No known installs in territory
+- No vendor (gap): Harbor Metals, Precision Forge, Apex Auto Parts
+
+OPEN QUESTIONS / GAPS
+----------------------
+- Midwest Castings: Who owns the S/4HANA SI decision — internal IT or Deloitte?
+- Great Lakes Steel: New VP Tax (Lisa Tran) — has she evaluated vendors yet?
+- Twin Cities Machining: Is TaxJar actually live or still being implemented?
+- Apex Auto Parts: What tax engine is being used post S/4 go-live? Likely gap.
+
+TEAM CONTEXT
+------------
+- SDR supporting this BDR: Alex Rivera (handles inbound assist + LinkedIn touchpoints)
+- Channel partner in region: EY Midwest SAP Practice (co-sell on ECC/S4 accounts)
+- AE aligned: Chris Oluwatobi (Mid-Market AE, manufacturing specialist)
+- BDR quota this quarter: 18 SALs, 8 SQLs, $1.4M influenced pipeline
+
+GOAL FOR THIS PLAYBOOK
+-----------------------
+Produce a prioritized call plan for the first 30 days:
+- Rank the 10 accounts by urgency and signal strength
+- Recommend the right opening angle for each account
+- Flag which accounts to co-sell with EY
+- Identify the top 3 contacts to reach per priority account
