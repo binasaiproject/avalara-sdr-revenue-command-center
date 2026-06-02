@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Package manager lock files
+# Keep package-lock.json for npm projects
+
+# Build outputs
+dist/
+build/
+.vercel/
+
+# Environment variables
+.env
+.env.local
+.env*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
