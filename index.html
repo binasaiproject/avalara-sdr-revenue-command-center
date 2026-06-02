@@ -1085,32 +1085,32 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   <div class="grid g3">
 
     <div class="agent-card" data-agent="persona">
-      <div class="agent-top"><div class="a-ico">🎭</div><span class="a-status">▶ Demo</span><h3>Persona &amp; Messaging</h3><div class="a-role">Buyer Intelligence</div></div>
+      <div class="agent-top"><div class="a-ico">🎭</div><span class="a-status live-badge">⚡ Live</span><h3>Persona &amp; Messaging</h3><div class="a-role">Buyer Intelligence</div></div>
       <div class="agent-body"><p class="a-desc">Builds buyer personas and "Why Buy Anything / Now / Avalara" value props by role and industry — ready to drop into a sequence.</p>
         <ul class="agent-feats"><li>Maps pains &amp; triggers per persona</li><li>Drafts the three Why Buys per segment</li><li>Aligns messaging to the active play</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — role + industry</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. VP Finance, multi-state SaaS retailer"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runPersona(this)">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
     <div class="agent-card" data-agent="account">
-      <div class="agent-top"><div class="a-ico">🔍</div><span class="a-status">▶ Demo</span><h3>Account Research</h3><div class="a-role">Pre-Call Intelligence</div></div>
+      <div class="agent-top"><div class="a-ico">🔍</div><span class="a-status live-badge">⚡ Live</span><h3>Account Research</h3><div class="a-role">Pre-Call Intelligence</div></div>
       <div class="agent-body"><p class="a-desc">Builds a full account brief in minutes — compliance triggers, ERP footprint, expansion signals, and the top 3 contacts to multi-thread.</p>
         <ul class="agent-feats"><li>Surfaces the compliance trigger for the account</li><li>Maps ERP stack &amp; integration risk</li><li>Returns the 3 best contacts with rationale</li></ul></div>
-      <div class="agent-io"><div class="io-lab">Input — company name or account ID</div>
+      <div class="agent-io"><div class="io-lab">Input — company name or account context</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. Acme Corp, $180M rev, SAP S/4HANA migration underway"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runAccount(this)">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
     <div class="agent-card" data-agent="email">
-      <div class="agent-top"><div class="a-ico">✉️</div><span class="a-status">▶ Demo</span><h3>Email Personalizer</h3><div class="a-role">Outreach Automation</div></div>
+      <div class="agent-top"><div class="a-ico">✉️</div><span class="a-status live-badge">⚡ Live</span><h3>Email Personalizer</h3><div class="a-role">Outreach Automation</div></div>
       <div class="agent-body"><p class="a-desc">Drafts a personalized, trigger-led first-touch email from account research — not a template blast, a message that earns a reply.</p>
         <ul class="agent-feats"><li>Leads with the account's specific trigger</li><li>Maps pain to the right Avalara value prop</li><li>Ends with a low-friction CTA</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — account brief or trigger</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. CFO at Midwest distributor, expanding to 6 new states Q3"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <button class="agent-run" onclick="runEmail(this)">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
@@ -1539,6 +1539,69 @@ async function runPlaybook(btn){
   }
   btn.disabled=false;
   btn.textContent='▶ Run Agent';
+}
+
+// ===== ACCOUNT RESEARCH — LIVE CLAUDE AGENT =====
+async function runAccount(btn){
+  const io=btn.closest('.agent-io');
+  const out=io.querySelector('.agent-out');
+  const input=io.querySelector('.agent-input');
+  const account=input?input.value.trim():'';
+  if(!account){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter a company name or account description.</b>';return;}
+  out.classList.add('show');
+  out.innerHTML='<span style="color:#6b7280">Researching account…</span> <span class="typing"><i></i><i></i><i></i></span>';
+  btn.disabled=true;btn.textContent='⏳ Running…';
+  try{
+    const resp=await fetch('/api/account',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({account})});
+    const data=await resp.json();
+    if(data.html){
+      window.__lastAccountCsv=data.csv;window.__lastAccountCo=data.company;
+      const csvBtn=data.csv?`<br><br><button onclick="downloadCsv(window.__lastAccountCsv,'${(data.company||'account').replace(/[^a-z0-9]/gi,'-').toLowerCase()}-research.csv')" style="font-size:11px;padding:6px 14px;background:#16a34a;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">⬇ Download CSV</button>`:'';
+      out.innerHTML=data.html+csvBtn;
+    }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
+  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
+  btn.disabled=false;btn.textContent='▶ Run Agent';
+}
+
+// ===== PERSONA & MESSAGING — LIVE CLAUDE AGENT =====
+async function runPersona(btn){
+  const io=btn.closest('.agent-io');
+  const out=io.querySelector('.agent-out');
+  const input=io.querySelector('.agent-input');
+  const persona=input?input.value.trim():'';
+  if(!persona){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter a buyer role and industry.</b>';return;}
+  out.classList.add('show');
+  out.innerHTML='<span style="color:#6b7280">Building persona…</span> <span class="typing"><i></i><i></i><i></i></span>';
+  btn.disabled=true;btn.textContent='⏳ Running…';
+  try{
+    const resp=await fetch('/api/persona',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({persona})});
+    const data=await resp.json();
+    if(data.html){out.innerHTML=data.html;}
+    else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
+  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
+  btn.disabled=false;btn.textContent='▶ Run Agent';
+}
+
+// ===== EMAIL PERSONALIZER — LIVE CLAUDE AGENT =====
+async function runEmail(btn){
+  const io=btn.closest('.agent-io');
+  const out=io.querySelector('.agent-out');
+  const input=io.querySelector('.agent-input');
+  const context=input?input.value.trim():'';
+  if(!context){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter an account brief or trigger context.</b>';return;}
+  out.classList.add('show');
+  out.innerHTML='<span style="color:#6b7280">Drafting email…</span> <span class="typing"><i></i><i></i><i></i></span>';
+  btn.disabled=true;btn.textContent='⏳ Running…';
+  try{
+    const resp=await fetch('/api/email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({context})});
+    const data=await resp.json();
+    if(data.html){
+      const copyBtn=`<br><br><button onclick="navigator.clipboard.writeText(window.__lastEmail||'').then(()=>this.textContent='✓ Copied!')" style="font-size:11px;padding:6px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">📋 Copy Email</button>`;
+      window.__lastEmail=(data.email_body||'');
+      out.innerHTML=data.html+copyBtn;
+    }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
+  }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
+  btn.disabled=false;btn.textContent='▶ Run Agent';
 }
 
 </script>
