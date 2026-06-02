@@ -744,7 +744,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
     </div>
     <div class="card">
       <h3>Ramp Curve Model</h3>
-      <div class="csub">SQL productivity by tenure month</div>
+      <div class="csub">SDR/SMB track vs BDR/Enterprise track · % of full quota</div>
       <div class="chart-box" style="height:260px"><canvas id="chartRamp"></canvas></div>
       <p class="fineprint">SMB/inbound SDRs ramp faster (full quota by M6); BDR/Enterprise track takes ~7 months due to longer deal cycles and deeper account research requirements.</p>
     </div>
@@ -1383,11 +1383,11 @@ tabs.forEach((t,i)=>{
     b.classList.add('active');
     document.getElementById(t.id).classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
-    // build charts for this tab, then resize so Chart.js picks up now-visible container dims
-    requestAnimationFrame(()=>{
+    // Wait for display:block to fully paint before Chart.js measures canvas dims
+    setTimeout(()=>{
       if(charts[t.id])charts[t.id]();
-      requestAnimationFrame(()=>{Object.values(Chart.instances||{}).forEach(c=>{try{c.resize()}catch(e){}});});
-    });
+      setTimeout(()=>{Object.values(Chart.instances||{}).forEach(c=>{try{c.resize()}catch(e){}});},50);
+    },80);
   };
   nav.appendChild(b);
 });
