@@ -1083,16 +1083,6 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   <div class="section-label">The Agent Suite · click Run Agent on any card to demo</div>
   <div class="grid g3">
 
-    <div class="agent-card" data-agent="playbook">
-      <div class="agent-top"><div class="a-ico">📘</div><span class="a-status">▶ Demo</span><h3>Playbook Builder</h3><div class="a-role">Territory &amp; Account Strategy</div></div>
-      <div class="agent-body"><p class="a-desc">Drafts a territory playbook — whitespace, competitive detail, ranked target list, and certification pre-fill.</p>
-        <ul class="agent-feats"><li>Auto-whitespaces the book of business</li><li>Ranks top &amp; next-best accounts</li><li>Pre-fills playbook certification fields</li></ul></div>
-      <div class="agent-io"><div class="io-lab">Input — territory or account segment </div>
-        <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market Manufacturing, Northeast — 240 accounts"></textarea>
-        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
-        <div class="agent-out"></div></div>
-    </div>
-
     <div class="agent-card" data-agent="persona">
       <div class="agent-top"><div class="a-ico">🎭</div><span class="a-status">▶ Demo</span><h3>Persona &amp; Messaging</h3><div class="a-role">Buyer Intelligence</div></div>
       <div class="agent-body"><p class="a-desc">Builds buyer personas and "Why Buy Anything / Now / Avalara" value props by role and industry — ready to drop into a sequence.</p>
@@ -1189,6 +1179,16 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
         <ul class="agent-feats"><li>Scores candidates for coachability &amp; slope</li><li>Generates a 6-week ramp plan per hire</li><li>Flags readiness gaps vs all 6 criteria</li></ul></div>
       <div class="agent-io"><div class="io-lab">Input — candidate or new-hire profile</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. New BDR, 1yr SaaS outbound, strong cold call, weak discovery"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
+    </div>
+
+    <div class="agent-card" data-agent="playbook">
+      <div class="agent-top"><div class="a-ico">📘</div><span class="a-status">▶ Demo</span><h3>Playbook Builder</h3><div class="a-role">Territory &amp; Account Strategy</div></div>
+      <div class="agent-body"><p class="a-desc">Drafts a territory playbook — whitespace, competitive detail, ranked target list, and certification pre-fill.</p>
+        <ul class="agent-feats"><li>Auto-whitespaces the book of business</li><li>Ranks top &amp; next-best accounts</li><li>Pre-fills playbook certification fields</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — territory or account segment</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market Manufacturing, Northeast — 240 accounts"></textarea>
         <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
