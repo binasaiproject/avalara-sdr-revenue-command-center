@@ -1084,12 +1084,12 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   <div class="grid g3">
 
     <div class="agent-card" data-agent="playbook">
-      <div class="agent-top"><div class="a-ico">📘</div><span class="a-status live-badge">⚡ Live</span><h3>Playbook Builder</h3><div class="a-role">Territory &amp; Account Strategy</div></div>
+      <div class="agent-top"><div class="a-ico">📘</div><span class="a-status">▶ Demo</span><h3>Playbook Builder</h3><div class="a-role">Territory &amp; Account Strategy</div></div>
       <div class="agent-body"><p class="a-desc">Drafts a territory playbook — whitespace, competitive detail, ranked target list, and certification pre-fill.</p>
         <ul class="agent-feats"><li>Auto-whitespaces the book of business</li><li>Ranks top &amp; next-best accounts</li><li>Pre-fills playbook certification fields</li></ul></div>
-      <div class="agent-io"><div class="io-lab">Input — territory or account segment <button onclick="loadPlaybookSample(this)" style="margin-left:8px;font-size:10px;padding:2px 8px;border:1px solid var(--av-orange);color:var(--av-orange);background:none;border-radius:4px;cursor:pointer;font-family:inherit">⬇ Load Sample File</button></div>
-        <textarea class="agent-input" rows="3" placeholder="Paste your territory brief here, or click Load Sample File above…"></textarea>
-        <button class="agent-run" onclick="runPlaybook(this)">▶ Run Agent</button>
+      <div class="agent-io"><div class="io-lab">Input — territory or account segment </div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market Manufacturing, Northeast — 240 accounts"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
         <div class="agent-out"></div></div>
     </div>
 
