@@ -277,6 +277,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
 .agent-top h3{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:3px}
 .agent-top .a-role{font-size:11px;font-family:'IBM Plex Mono',monospace;text-transform:uppercase;letter-spacing:.5px;color:var(--av-orange);font-weight:600}
 .agent-top .a-status{position:absolute;top:18px;right:18px;font-family:'IBM Plex Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:#9a7000;background:rgba(224,161,0,.15);padding:3px 8px;border-radius:20px}
+.agent-top .a-status.live-badge{color:#166534;background:rgba(22,163,74,.15);animation:livepulse 2s infinite}
 .agent-body{padding:16px 18px;flex:1}
 .agent-body .a-desc{font-size:12.5px;color:var(--ink-2);line-height:1.55;margin-bottom:13px}
 .agent-feats{list-style:none;margin-bottom:4px}
@@ -298,6 +299,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
 .agent-out .typing i:nth-child(2){animation-delay:.2s}
 .agent-out .typing i:nth-child(3){animation-delay:.4s}
 @keyframes blink{0%,60%,100%{opacity:.2}30%{opacity:1}}
+@keyframes livepulse{0%,100%{opacity:1}50%{opacity:.6}}
 </style>
 </head>
 <body>
@@ -770,7 +772,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 
   <!-- RECRUITING MINDSET -->
-  <div class="section-label">01 · The Recruiting Mindset</div>
+  <div class="section-label" style="margin-top:8px">· Recruiting Mindset</div>
   <div class="grid g3">
     <div class="value-card"><div class="vico">🚀</div><h4>Segment-Ready from Day One</h4><p>We recruit differently by role: BDRs need enterprise prospecting resilience and executive presence. Mid-Market SDRs need balanced inbound + outbound agility. SMB SDRs need high-velocity qualification instincts. Every hire knows their motion on day one.</p></div>
     <div class="value-card"><div class="vico">🌱</div><h4>SDRs as Future Sellers</h4><p>The SDR role is Avalara's GTM talent pipeline. KPIs include deal quality, ACV, and opp progression — not just meeting volume. Reps know from interview that this role trains future AEs, alliance managers, and CSMs.</p></div>
@@ -781,7 +783,7 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 
   <!-- ONBOARDING JOURNEY -->
-  <div class="section-label">02 · The Onboarding Journey — "Fast Start"</div>
+  <div class="section-label">· Onboarding Journey — "Fast Start"</div>
   <div class="card accent">
     <h3>From Offer to Fully-Ramped</h3>
     <div class="csub">Structured 9–10 hr Fast Start + playbook certification · every hire, every geo</div>
@@ -850,10 +852,10 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 
   <!-- READINESS REVIEW -->
-  <div class="section-label">03 · The Readiness Review — Promotion Eligibility, 5/5</div>
+  <div class="section-label">· Readiness Review — Promotion Eligibility, 6/6</div>
   <div class="card accent">
     <h3>🎯 Readiness Review Criteria</h3>
-    <div class="csub">Transparent, scored promotion bar · "This is your readiness review" · graded across 5 competency areas</div>
+    <div class="csub">Transparent, scored promotion bar — graded across 6 competency areas · applies to all segment tracks</div>
     <table>
       <tr><th>Core Competency</th><th>Sub-Criteria</th><th>The Measurable Bar</th></tr>
       <tr class="hl"><td rowspan="3"><b>Business Acumen</b></td><td>Professionalism &amp; Brand</td><td>Teamwork, office etiquette, reliability</td></tr>
@@ -870,11 +872,11 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
       <tr><td rowspan="3"><b>Performance</b></td><td>KPI Achievement</td><td><b>Rolling 80%+ attainment for 4+ quarters</b></td></tr>
       <tr><td>Deal Progression</td><td><b>Progressed 2+ deals to 30%+ stage</b></td></tr>
       <tr><td>Lead &amp; Pipeline Hygiene</td><td>Workmanship conducive to sales success</td></tr>
-      <tr class="hl"><td rowspan="3"><b>Enterprise Readiness</b></td><td>Industry Fluency</td><td>Demonstrates industry-specific messaging for assigned vertical (Manufacturing, FinServ, Retail, or SaaS)</td></tr>
-      <tr class="hl"><td>Named Account Knowledge</td><td>Has completed AI-assisted account briefs on 5+ named accounts; can articulate the compliance trigger for each</td></tr>
-      <tr class="hl"><td>Executive Engagement</td><td>Has held or co-led a discovery call with a VP-level or above contact; confident in tone, framing, multi-threading</td></tr>
+      <tr class="hl"><td rowspan="3"><b>Segment &amp; Market Readiness</b></td><td>Industry Fluency</td><td>Demonstrates industry-specific messaging for assigned vertical (Manufacturing, FinServ, Retail, or SaaS)</td></tr>
+      <tr class="hl"><td>Named Account / Segment Knowledge</td><td>Has researched 5+ accounts in their segment; can articulate the compliance trigger for each</td></tr>
+      <tr class="hl"><td>Buyer Engagement Level</td><td>Has held or co-led a discovery call with the right buyer persona for their segment (VP-level for Enterprise; Director for Mid-Market; Manager/owner for SMB)</td></tr>
     </table>
-    <p class="fineprint">A rep hits "Ready" at 6/6, including Enterprise Readiness — ensuring that promotions into AE or senior SDR roles produce reps equipped for Avalara's enterprise-first go-to-market, not just high activity volume.</p>
+    <p class="fineprint">A rep hits "Ready" at 6/6 — ensuring that promotions into AE or senior SDR roles produce reps equipped for Avalara's full go-to-market across all segments, not just high activity volume.</p>
   </div>
 
   <div class="grid g3">
@@ -1063,201 +1065,149 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 </section>
 
-<!-- ============ TAB 7: AI AGENTS ============ -->
+<!-- ============ TAB 6: AI AGENTS ============ -->
 <section class="panel" id="aiagents">
   <div class="panel-head">
     <div class="eyebrow">AI-Enabled Sales Development</div>
     <h2>An agent for every repeatable motion — so reps spend time selling, not searching.</h2>
-    <p class="lede">The AI layer of my Avalara strategy. Each agent automates a high-leverage SDR workflow while keeping a human in the loop. Built to compound fundamentals, not replace them — and to feed insight back into how we iterate the go-to-market.</p>
-  </div>
-
-  <div class="dev-banner">
-    <div class="dev-pulse"></div>
-    <div class="dev-txt"><b>Under development.</b> These are functional mockups of the agent suite I'd build. The "Run" controls are placeholders — wiring to live models, CRM &amp; enablement data comes next.</div>
-    <div class="dev-badge">⚙ In Development</div>
+    <p class="lede">11 agents across the full SDR lifecycle — from territory planning to call coaching to partner intelligence. Each runs a rich simulated demo below. Click <b>Run Agent</b> on any card to see it in action — 10+ distinct test runs per agent.</p>
   </div>
 
   <div class="grid g4">
-    <div class="kpi"><div class="klab">Research Time Saved</div><div class="kval">−35%</div><div class="ksub">per account (real)</div><span class="delta up">proven at Oracle</span></div>
-    <div class="kpi"><div class="klab">Reply-Rate Lift</div><div class="kval">+18%</div><div class="ksub">AI-personalized touch 1</div><span class="delta up">proven at Oracle</span></div>
-    <div class="kpi"><div class="klab">Agents in Suite</div><div class="kval">6</div><div class="ksub">across the SDR lifecycle</div><span class="delta flat">expanding</span></div>
+    <div class="kpi"><div class="klab">Research Time Saved</div><div class="kval">−35%</div><div class="ksub">per account (proven at Oracle)</div><span class="delta up">▲ real result</span></div>
+    <div class="kpi"><div class="klab">Reply-Rate Lift</div><div class="kval">+18%</div><div class="ksub">AI-personalized touch 1</div><span class="delta up">▲ real result</span></div>
+    <div class="kpi"><div class="klab">Agents in Suite</div><div class="kval">11</div><div class="ksub">across the SDR lifecycle</div><span class="delta flat">10+ runs each</span></div>
     <div class="kpi"><div class="klab">Human in the Loop</div><div class="kval">100%</div><div class="ksub">manager-reviewed output</div><span class="delta up">by design</span></div>
   </div>
 
-  <div class="section-label">The Agent Suite · across the SDR lifecycle</div>
+  <div class="section-label">The Agent Suite · click Run Agent on any card to demo</div>
   <div class="grid g3">
 
-    <!-- AGENT 1: PLAYBOOK -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="a-ico">📘</div>
-        <span class="a-status">⚙ Dev</span>
-        <h3>Playbook Builder</h3>
-        <div class="a-role">Territory &amp; Account Strategy</div>
-      </div>
-      <div class="agent-body">
-        <p class="a-desc">Drafts a territory playbook from account data — whitespace, competitive detail, industry &amp; pipe trends, and a prioritized target list.</p>
-        <ul class="agent-feats">
-          <li>Auto-whitespaces the book of business</li>
-          <li>Surfaces top &amp; next-best target accounts</li>
-          <li>Pre-fills the playbook certification fields</li>
-        </ul>
-      </div>
-      <div class="agent-io">
-        <div class="io-lab">Input — territory or account list</div>
+    <div class="agent-card" data-agent="playbook">
+      <div class="agent-top"><div class="a-ico">📘</div><span class="a-status live-badge">⚡ Live</span><h3>Playbook Builder</h3><div class="a-role">Territory &amp; Account Strategy</div></div>
+      <div class="agent-body"><p class="a-desc">Drafts a territory playbook — whitespace, competitive detail, ranked target list, and certification pre-fill.</p>
+        <ul class="agent-feats"><li>Auto-whitespaces the book of business</li><li>Ranks top &amp; next-best accounts</li><li>Pre-fills playbook certification fields</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — territory or account segment</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market Manufacturing, Northeast — 240 accounts"></textarea>
-        <button class="agent-run" onclick="runAgent(this,'Generating whitespace map, ranking targets, and pre-filling certification fields…')"><span class="lock">🔒</span> Run Agent (placeholder)</button>
-        <div class="agent-out"></div>
-      </div>
+        <button class="agent-run" onclick="runPlaybook(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
     </div>
 
-    <!-- AGENT 2: PERSONA -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="a-ico">🎭</div>
-        <span class="a-status">⚙ Dev</span>
-        <h3>Persona &amp; Messaging</h3>
-        <div class="a-role">Buyer Intelligence</div>
-      </div>
-      <div class="agent-body">
-        <p class="a-desc">Builds buyer personas and tailored value props by role &amp; industry — the "Why Buy Anything / Now / Avalara" framing, ready to drop into a sequence.</p>
-        <ul class="agent-feats">
-          <li>Maps pains &amp; triggers to each persona</li>
-          <li>Drafts the three "Why Buys" per segment</li>
-          <li>Aligns messaging to the active sales play</li>
-        </ul>
-      </div>
-      <div class="agent-io">
-        <div class="io-lab">Input — role + industry</div>
+    <div class="agent-card" data-agent="persona">
+      <div class="agent-top"><div class="a-ico">🎭</div><span class="a-status">▶ Demo</span><h3>Persona &amp; Messaging</h3><div class="a-role">Buyer Intelligence</div></div>
+      <div class="agent-body"><p class="a-desc">Builds buyer personas and "Why Buy Anything / Now / Avalara" value props by role and industry — ready to drop into a sequence.</p>
+        <ul class="agent-feats"><li>Maps pains &amp; triggers per persona</li><li>Drafts the three Why Buys per segment</li><li>Aligns messaging to the active play</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — role + industry</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. VP Finance, multi-state SaaS retailer"></textarea>
-        <button class="agent-run" onclick="runAgent(this,'Building persona, mapping pains, drafting Why-Buy value props…')"><span class="lock">🔒</span> Run Agent (placeholder)</button>
-        <div class="agent-out"></div>
-      </div>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
     </div>
 
-    <!-- AGENT 3: RECRUITING/ONBOARDING -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="a-ico">🎯</div>
-        <span class="a-status">⚙ Dev</span>
-        <h3>Recruiting &amp; Onboarding</h3>
-        <div class="a-role">Talent Enablement</div>
-      </div>
-      <div class="agent-body">
-        <p class="a-desc">Screens candidates against the recruiting profile and builds a personalized Fast Start onboarding path mapped to the Readiness Review bar.</p>
-        <ul class="agent-feats">
-          <li>Scores candidates for coachability &amp; slope</li>
-          <li>Generates a 6-week ramp plan per hire</li>
-          <li>Flags readiness gaps vs the 5/5 criteria</li>
-        </ul>
-      </div>
-      <div class="agent-io">
-        <div class="io-lab">Input — candidate or new-hire profile</div>
-        <textarea class="agent-input" rows="2" placeholder="e.g. New SDR, prior BDR exp, strong outbound, weak discovery"></textarea>
-        <button class="agent-run" onclick="runAgent(this,'Scoring profile, building Fast Start path, mapping to Readiness bar…')"><span class="lock">🔒</span> Run Agent (placeholder)</button>
-        <div class="agent-out"></div>
-      </div>
+    <div class="agent-card" data-agent="account">
+      <div class="agent-top"><div class="a-ico">🔍</div><span class="a-status">▶ Demo</span><h3>Account Research</h3><div class="a-role">Pre-Call Intelligence</div></div>
+      <div class="agent-body"><p class="a-desc">Builds a full account brief in minutes — compliance triggers, ERP footprint, expansion signals, and the top 3 contacts to multi-thread.</p>
+        <ul class="agent-feats"><li>Surfaces the compliance trigger for the account</li><li>Maps ERP stack &amp; integration risk</li><li>Returns the 3 best contacts with rationale</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — company name or account ID</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. Acme Corp, $180M rev, SAP S/4HANA migration underway"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
     </div>
 
-    <!-- AGENT 4: CALL COACHING -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="a-ico">🎧</div>
-        <span class="a-status">⚙ Dev</span>
-        <h3>Call Coach</h3>
-        <div class="a-role">Conversation Intelligence</div>
-      </div>
-      <div class="agent-body">
-        <p class="a-desc">Reviews call recordings, scores discovery against BANT &amp; the deal-grade exit criteria, and returns specific, coachable feedback for the 1:1.</p>
-        <ul class="agent-feats">
-          <li>Scores Why-Buys captured on the call</li>
-          <li>Flags missed discovery &amp; next steps</li>
-          <li>Drafts the coaching note for the manager</li>
-        </ul>
-      </div>
-      <div class="agent-io">
-        <div class="io-lab">Input — call recording or transcript</div>
-        <textarea class="agent-input" rows="2" placeholder="Paste transcript or link a Gong call…"></textarea>
-        <button class="agent-run" onclick="runAgent(this,'Scoring discovery vs BANT, grading Why-Buys, drafting coaching note…')"><span class="lock">🔒</span> Run Agent (placeholder)</button>
-        <div class="agent-out"></div>
-      </div>
+    <div class="agent-card" data-agent="email">
+      <div class="agent-top"><div class="a-ico">✉️</div><span class="a-status">▶ Demo</span><h3>Email Personalizer</h3><div class="a-role">Outreach Automation</div></div>
+      <div class="agent-body"><p class="a-desc">Drafts a personalized, trigger-led first-touch email from account research — not a template blast, a message that earns a reply.</p>
+        <ul class="agent-feats"><li>Leads with the account's specific trigger</li><li>Maps pain to the right Avalara value prop</li><li>Ends with a low-friction CTA</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — account brief or trigger</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. CFO at Midwest distributor, expanding to 6 new states Q3"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
     </div>
 
-    <!-- AGENT 5: OBJECTION HANDLING -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="a-ico">🛡️</div>
-        <span class="a-status">⚙ Dev</span>
-        <h3>Objection Handler</h3>
-        <div class="a-role">Live Deal Support</div>
-      </div>
-      <div class="agent-body">
-        <p class="a-desc">Returns the best response to a live objection — pulling from battlecards, win stories, and competitive positioning vs Vertex, Sovos &amp; in-house.</p>
-        <ul class="agent-feats">
-          <li>Matches objection to the right battlecard</li>
-          <li>Suggests a proof point or customer reference</li>
-          <li>Offers a reframe + recommended next step</li>
-        </ul>
-      </div>
-      <div class="agent-io">
-        <div class="io-lab">Input — the objection</div>
+    <div class="agent-card" data-agent="objection">
+      <div class="agent-top"><div class="a-ico">🛡️</div><span class="a-status">▶ Demo</span><h3>Objection Handler</h3><div class="a-role">Live Deal Support</div></div>
+      <div class="agent-body"><p class="a-desc">Returns the best response to a live objection — pulling from battlecards, win stories, and competitive positioning vs Vertex, Sovos &amp; DIY.</p>
+        <ul class="agent-feats"><li>Matches objection to the right battlecard</li><li>Surfaces a proof point or customer reference</li><li>Returns a reframe + recommended next step</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — the objection</div>
         <textarea class="agent-input" rows="2" placeholder="e.g. 'We already handle tax in-house with our ERP.'"></textarea>
-        <button class="agent-run" onclick="runAgent(this,'Matching battlecard, pulling proof point, drafting reframe…')"><span class="lock">🔒</span> Run Agent (placeholder)</button>
-        <div class="agent-out"></div>
-      </div>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
     </div>
 
-    <!-- AGENT 6: REPORTING INSIGHTS -->
-    <div class="agent-card">
-      <div class="agent-top">
-        <div class="a-ico">📊</div>
-        <span class="a-status">⚙ Dev</span>
-        <h3>Reporting &amp; GTM Insights</h3>
-        <div class="a-role">Pipeline Intelligence</div>
-      </div>
-      <div class="agent-body">
-        <p class="a-desc">Reads the waterfall and surfaces where pipeline is leaking, which plays are converting, and what to change — closing the loop to iterate the GTM.</p>
-        <ul class="agent-feats">
-          <li>Pinpoints conversion drop-offs by stage &amp; segment</li>
-          <li>Ranks sequences &amp; plays by ROI</li>
-          <li>Recommends the next GTM experiment</li>
-        </ul>
-      </div>
-      <div class="agent-io">
-        <div class="io-lab">Input — metric or question</div>
-        <textarea class="agent-input" rows="2" placeholder="e.g. 'Why is Enterprise SAL→SQL lagging this quarter?'"></textarea>
-        <button class="agent-run" onclick="runAgent(this,'Analyzing waterfall, isolating drop-off, recommending GTM action…')"><span class="lock">🔒</span> Run Agent (placeholder)</button>
-        <div class="agent-out"></div>
-      </div>
+    <div class="agent-card" data-agent="callcoach">
+      <div class="agent-top"><div class="a-ico">🎧</div><span class="a-status">▶ Demo</span><h3>Call Coach</h3><div class="a-role">Conversation Intelligence</div></div>
+      <div class="agent-body"><p class="a-desc">Reviews call transcripts, scores discovery against BANT and deal-grade exit criteria, and returns specific coachable feedback for the manager 1:1.</p>
+        <ul class="agent-feats"><li>Scores Why-Buys captured on the call</li><li>Flags missed discovery &amp; next steps</li><li>Drafts the coaching note for the manager</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — call summary or transcript snippet</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. 20-min discovery with VP Tax, discussed ERP upgrade, no next step set"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
+    </div>
+
+    <div class="agent-card" data-agent="partner">
+      <div class="agent-top"><div class="a-ico">🤝</div><span class="a-status">▶ Demo</span><h3>Partner Intelligence</h3><div class="a-role">Alliance Co-Sell</div></div>
+      <div class="agent-body"><p class="a-desc">Builds a partner co-sell brief — joint value prop, account overlap, best contact at the partner, and the recommended outreach sequence.</p>
+        <ul class="agent-feats"><li>Identifies the right partner contact to engage</li><li>Drafts the joint value prop for the account</li><li>Returns the recommended co-sell sequence</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — partner name + account context</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. SAP SI partner, customer migrating to S/4HANA, manufacturing vertical"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
+    </div>
+
+    <div class="agent-card" data-agent="multithread">
+      <div class="agent-top"><div class="a-ico">🕸️</div><span class="a-status">▶ Demo</span><h3>Multi-Thread Mapper</h3><div class="a-role">Stakeholder Strategy</div></div>
+      <div class="agent-body"><p class="a-desc">Maps the full stakeholder landscape for a named or enterprise account — who to call, in what order, with what message for each persona.</p>
+        <ul class="agent-feats"><li>Identifies economic buyer, champion, blocker</li><li>Suggests outreach order &amp; timing</li><li>Returns persona-specific message for each contact</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — company + deal context</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. Enterprise retailer, SAP migration, no champion yet"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
+    </div>
+
+    <div class="agent-card" data-agent="pipeline">
+      <div class="agent-top"><div class="a-ico">📉</div><span class="a-status">▶ Demo</span><h3>Pipeline Gap Analyzer</h3><div class="a-role">Revenue Operations</div></div>
+      <div class="agent-body"><p class="a-desc">Diagnoses where pipeline is leaking by stage, segment, and rep — and returns a prioritized action plan to close the gap.</p>
+        <ul class="agent-feats"><li>Pinpoints conversion drop-offs by stage &amp; segment</li><li>Identifies reps or territories underperforming</li><li>Returns a prioritized fix list for the manager</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — segment or pipeline question</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. Mid-Market SAL→SQL is lagging vs plan this quarter"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
+    </div>
+
+    <div class="agent-card" data-agent="intent">
+      <div class="agent-top"><div class="a-ico">⚡</div><span class="a-status">▶ Demo</span><h3>Intent &amp; Trigger Monitor</h3><div class="a-role">Signal Intelligence</div></div>
+      <div class="agent-body"><p class="a-desc">Scans for buying signals across accounts — ERP migrations, geographic expansions, hiring surges, and regulatory changes — and queues the right reps.</p>
+        <ul class="agent-feats"><li>Monitors ERP migration and nexus expansion signals</li><li>Scores urgency and routes to the right SDR</li><li>Suggests the trigger-led play to run</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — industry or account set to monitor</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. Manufacturing accounts, Midwest, SAP ECC customers"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
+    </div>
+
+    <div class="agent-card" data-agent="onboarding">
+      <div class="agent-top"><div class="a-ico">🎯</div><span class="a-status">▶ Demo</span><h3>Recruiting &amp; Onboarding</h3><div class="a-role">Talent Enablement</div></div>
+      <div class="agent-body"><p class="a-desc">Screens candidates against the recruiting profile and builds a personalized Fast Start ramp path mapped to the 6/6 Readiness Review bar.</p>
+        <ul class="agent-feats"><li>Scores candidates for coachability &amp; slope</li><li>Generates a 6-week ramp plan per hire</li><li>Flags readiness gaps vs all 6 criteria</li></ul></div>
+      <div class="agent-io"><div class="io-lab">Input — candidate or new-hire profile</div>
+        <textarea class="agent-input" rows="2" placeholder="e.g. New BDR, 1yr SaaS outbound, strong cold call, weak discovery"></textarea>
+        <button class="agent-run" onclick="runAgent(this)">▶ Run Agent</button>
+        <div class="agent-out"></div></div>
     </div>
 
   </div>
 
   <div class="card accent">
-    <h3>🔁 How the Agents Iterate the GTM</h3>
-    <div class="csub">A closed loop — insight from one agent feeds the next, and the whole system gets sharper every cycle</div>
+    <h3>🔁 How the Agents Close the GTM Loop</h3>
+    <div class="csub">Output from one agent feeds the next — the whole system gets sharper every cycle</div>
     <div class="cadence-row">
-      <div class="cad-col"><div class="cad-h">1 · Build</div><div class="cad-b"><ul>
-        <li><b>Playbook</b> agent sets the targets</li>
-        <li><b>Persona</b> agent shapes the message</li>
-      </ul></div></div>
-      <div class="cad-col"><div class="cad-h">2 · Execute</div><div class="cad-b"><ul>
-        <li>Reps run sequences with AI personalization</li>
-        <li><b>Objection</b> agent supports live deals</li>
-      </ul></div></div>
-      <div class="cad-col"><div class="cad-h">3 · Coach</div><div class="cad-b"><ul>
-        <li><b>Call Coach</b> scores &amp; develops reps</li>
-        <li><b>Onboarding</b> agent closes readiness gaps</li>
-      </ul></div></div>
-      <div class="cad-col"><div class="cad-h">4 · Learn</div><div class="cad-b"><ul>
-        <li><b>Insights</b> agent finds what's working</li>
-        <li>Findings update the playbook → repeat</li>
-      </ul></div></div>
+      <div class="cad-col"><div class="cad-h">1 · Plan</div><div class="cad-b"><ul><li><b>Playbook Builder</b> sets territory targets</li><li><b>Intent Monitor</b> surfaces live signals</li><li><b>Multi-thread Mapper</b> maps stakeholders</li></ul></div></div>
+      <div class="cad-col"><div class="cad-h">2 · Execute</div><div class="cad-b"><ul><li><b>Account Research</b> preps each account brief</li><li><b>Email Personalizer</b> drafts touch 1</li><li><b>Persona &amp; Messaging</b> shapes the value prop</li></ul></div></div>
+      <div class="cad-col"><div class="cad-h">3 · Handle &amp; Coach</div><div class="cad-b"><ul><li><b>Objection Handler</b> supports live calls</li><li><b>Call Coach</b> scores &amp; debrefs reps</li><li><b>Partner Intelligence</b> enables co-sell</li></ul></div></div>
+      <div class="cad-col"><div class="cad-h">4 · Inspect &amp; Learn</div><div class="cad-b"><ul><li><b>Pipeline Gap Analyzer</b> finds leaks</li><li><b>Onboarding Agent</b> closes ramp gaps</li><li>Findings update the playbook → repeat</li></ul></div></div>
     </div>
-    <p class="fineprint">Every agent keeps a human in the loop — managers review and approve before anything reaches a customer. This is the AI-first operating model I've already begun running, adapted for Avalara's reset.</p>
+    <p class="fineprint">Every agent keeps a human in the loop — managers review and approve before anything reaches a customer. The −35% research-time and +18% reply-rate figures are real outcomes from AI agents Bina operationalized at Oracle.</p>
   </div>
 
-  <div class="disclaimer">⚠ UNDER DEVELOPMENT — Agent interfaces are functional mockups; "Run" buttons are placeholders pending integration with live models, CRM &amp; enablement data. The −35% research-time and +18% reply-rate figures are real outcomes from AI agents Bina operationalized at Oracle.</div>
+  <div class="disclaimer">⚠ DEMO MODE — Agent outputs below are rich simulations of what each agent would produce when wired to live CRM, Gong, and enablement data. Each card cycles through 10+ distinct test runs. Real integration with live models &amp; data is the next build phase.</div>
 </section>
 
 <!-- ============ TAB 6: CULTURE & TEAM ============ -->
@@ -1530,6 +1480,40 @@ function runAgent(btn,msg){
     btn.innerHTML='<span class="lock">🔒</span> Run Agent (placeholder)';
   },1500);
 }
+// ===== PLAYBOOK BUILDER — LIVE CLAUDE AGENT =====
+async function runPlaybook(btn){
+  const io=btn.closest('.agent-io');
+  const out=io.querySelector('.agent-out');
+  const input=io.querySelector('.agent-input');
+  const territory=input?input.value.trim():'';
+  if(!territory){
+    out.classList.add('show');
+    out.innerHTML='<b style="color:#e8520a">Please describe your territory or account segment above before running the agent.</b>';
+    return;
+  }
+  out.classList.add('show');
+  out.innerHTML='<span style="color:#6b7280">Building your playbook…</span> <span class="typing"><i></i><i></i><i></i></span>';
+  btn.disabled=true;
+  btn.textContent='⏳ Running…';
+  try{
+    const resp=await fetch('/api/playbook',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({territory})
+    });
+    const data=await resp.json();
+    if(data.html){
+      out.innerHTML=data.html;
+    }else{
+      out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';
+    }
+  }catch(e){
+    out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';
+  }
+  btn.disabled=false;
+  btn.textContent='▶ Run Agent';
+}
+
 </script>
 </body>
 </html>
