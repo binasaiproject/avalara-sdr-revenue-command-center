@@ -1427,7 +1427,7 @@ const charts={
         {label:'SQL→Opp',data:[36,38,39,41,42,43],borderColor:GOOD,backgroundColor:'transparent',tension:.35,borderWidth:2.5,pointRadius:3}
       ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,padding:10}}},scales:{y:{grid:gridStyle,ticks:{callback:v=>v+'%'}},x:{grid:{display:false}}}}}));
   },
-  capacity(){
+  people(){
     once('chartHC',()=>new Chart(document.getElementById('chartHC'),{type:'bar',
       data:{labels:['US East','US West','UK / EMEA','India'],datasets:[
         {label:'SDRs / BDRs / ADRs',data:[62,50,48,54],backgroundColor:ORANGE,borderRadius:4,stack:'s'},
@@ -1439,8 +1439,6 @@ const charts={
         {label:'SDR / SMB Track',data:[10,28,55,80,92,100,100],borderColor:ORANGE,backgroundColor:'rgba(255,90,31,.10)',fill:true,tension:.4,borderWidth:3,pointRadius:4,pointBackgroundColor:ORANGE},
         {label:'BDR / Enterprise Track',data:[5,18,40,65,82,94,100],borderColor:BLUE,backgroundColor:'rgba(0,110,220,.07)',fill:true,tension:.4,borderWidth:3,pointRadius:4,pointBackgroundColor:BLUE,borderDash:[4,3]}
       ]},options:{maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{grid:gridStyle,max:115,ticks:{callback:v=>v+'%'},title:{display:true,text:'% of Full Quota'}},x:{grid:{display:false}}}}}));
-  },
-  recruiting(){
     once('chartReadiness',()=>new Chart(document.getElementById('chartReadiness'),{type:'bar',
       data:{labels:['1–2 / 6','3–4 / 6','5 / 6','6 / 6'],datasets:[
         {label:'Reps',data:[31,68,52,23],backgroundColor:['#B6BAC6',BLUE_B,ORANGE,GOOD],borderRadius:5}
