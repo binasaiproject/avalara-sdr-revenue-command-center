@@ -1383,6 +1383,7 @@ tabs.forEach((t,i)=>{
     b.classList.add('active');
     document.getElementById(t.id).classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
+    track('tab_view',{tab:t.id,label:t.l});
     // Wait for display:block to fully paint before Chart.js measures canvas dims
     setTimeout(()=>{
       if(charts[t.id])charts[t.id]();
@@ -1392,6 +1393,9 @@ tabs.forEach((t,i)=>{
   nav.appendChild(b);
 });
 
+
+// ===== VERCEL ANALYTICS EVENT HELPER =====
+function track(event, props){try{if(typeof window.va==='function')window.va('event',{name:event,...props});}catch(e){}}
 // ===== CHART DEFAULTS =====
 Chart.defaults.font.family="'Archivo',sans-serif";
 Chart.defaults.font.size=11;
@@ -1469,6 +1473,8 @@ function runAgent(btn,msg){
   const io=btn.closest('.agent-io');
   const out=io.querySelector('.agent-out');
   const input=io.querySelector('.agent-input');
+  const _card=btn.closest('.agent-card');
+  track('agent_run',{agent:_card?_card.dataset.agent:'unknown',mode:'demo'});
   out.classList.add('show');
   out.innerHTML='<span style="color:var(--ink-2)">'+msg+'</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;
@@ -1496,6 +1502,7 @@ async function loadPlaybookSample(btn){
 }
 
 function downloadCsv(csv,filename){
+  track('csv_download',{filename});
   const blob=new Blob([csv],{type:'text/csv'});
   const url=URL.createObjectURL(blob);
   const a=document.createElement('a');
@@ -1514,6 +1521,7 @@ async function runPlaybook(btn){
     return;
   }
   out.classList.add('show');
+  track('agent_run',{agent:'playbook',mode:'live'});
   out.innerHTML='<span style="color:#6b7280">Building your playbook…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;
   btn.textContent='⏳ Running…';
@@ -1549,6 +1557,7 @@ async function runAccount(btn){
   const account=input?input.value.trim():'';
   if(!account){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter a company name or account description.</b>';return;}
   out.classList.add('show');
+  track('agent_run',{agent:'account',mode:'live'});
   out.innerHTML='<span style="color:#6b7280">Researching account…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;btn.textContent='⏳ Running…';
   try{
@@ -1571,6 +1580,7 @@ async function runPersona(btn){
   const persona=input?input.value.trim():'';
   if(!persona){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter a buyer role and industry.</b>';return;}
   out.classList.add('show');
+  track('agent_run',{agent:'persona',mode:'live'});
   out.innerHTML='<span style="color:#6b7280">Building persona…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;btn.textContent='⏳ Running…';
   try{
@@ -1590,19 +1600,34 @@ async function runEmail(btn){
   const context=input?input.value.trim():'';
   if(!context){out.classList.add('show');out.innerHTML='<b style="color:#e8520a">Please enter an account brief or trigger context.</b>';return;}
   out.classList.add('show');
+  track('agent_run',{agent:'email',mode:'live'});
   out.innerHTML='<span style="color:#6b7280">Drafting email…</span> <span class="typing"><i></i><i></i><i></i></span>';
   btn.disabled=true;btn.textContent='⏳ Running…';
   try{
     const resp=await fetch('/api/email',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({context})});
     const data=await resp.json();
     if(data.html){
-      const copyBtn=`<br><br><button onclick="navigator.clipboard.writeText(window.__lastEmail||'').then(()=>this.textContent='✓ Copied!')" style="font-size:11px;padding:6px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">📋 Copy Email</button>`;
+      const copyBtn=`<br><br><button onclick="navigator.clipboard.writeText(window.__lastEmail||'').then(()=>{this.textContent='✓ Copied!';track('email_copied',{company:window.__lastEmailCo||''});})" style="font-size:11px;padding:6px 14px;background:#2563eb;color:#fff;border:none;border-radius:6px;cursor:pointer;font-family:inherit;font-weight:700">📋 Copy Email</button>`;
       window.__lastEmail=(data.email_body||'');
+      window.__lastEmailCo=data.company;
       out.innerHTML=data.html+copyBtn;
     }else{out.innerHTML='<b style="color:#ef4444">Error: '+(data.error||'Unknown error')+'</b>';}
   }catch(e){out.innerHTML='<b style="color:#ef4444">Network error — please try again.</b>';}
   btn.disabled=false;btn.textContent='▶ Run Agent';
 }
+
+// ===== LINK CLICK TRACKING =====
+document.addEventListener('click', e => {
+  const a = e.target.closest('a[href]');
+  if (!a) return;
+  const href = a.getAttribute('href') || '';
+  const isExternal = href.startsWith('http') || href.startsWith('//');
+  track('link_click', {
+    href: href.slice(0, 120),
+    text: (a.textContent || '').trim().slice(0, 60),
+    external: isExternal
+  });
+});
 
 </script>
 </body>
