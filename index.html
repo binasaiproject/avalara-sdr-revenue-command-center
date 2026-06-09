@@ -728,7 +728,7 @@ function track(event, props){
 </section>
 
 <!-- ============ TAB 4: PEOPLE & ORG (was Capacity + Recruiting + Org) ============ -->
-<section class="panel" id="people">
+<section class="panel" id="people" style="display:none">
   <div class="panel-head">
     <div class="eyebrow">People, Org &amp; Capacity Planning</div>
     <h2>Every hire defended, every rep developed, every leader on a succession path.</h2>
@@ -1375,10 +1375,9 @@ const tabs=[
   {id:'overview',n:'01',l:'Command Overview'},
   {id:'alliances',n:'02',l:'Alliances'},
   {id:'pipeline',n:'03',l:'Pipeline & Revenue'},
-  {id:'people',n:'04',l:'People & Org'},
-  {id:'gtm',n:'05',l:'GTM Playbook'},
-  {id:'aiagents',n:'06',l:'AI Agents'},
-  {id:'culture',n:'07',l:'Culture & Team'}
+  {id:'gtm',n:'04',l:'GTM Playbook'},
+  {id:'aiagents',n:'05',l:'AI Agents'},
+  {id:'culture',n:'06',l:'Culture & Team'}
 ];
 const nav=document.getElementById('nav');
 tabs.forEach((t,i)=>{
