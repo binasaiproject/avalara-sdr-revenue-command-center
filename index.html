@@ -1350,6 +1350,145 @@ footer{background:var(--ink);color:#9aa0b0;margin-top:50px;padding:30px 0}
   </div>
 </section>
 
+<!-- ============ TAB 8: GTM AGENT SYSTEM (prepared for Zach) ============ -->
+<section class="panel" id="gtmagent">
+  <div class="panel-head">
+    <div class="eyebrow">Prepared for Zach — Multi-Agent GTM Research System</div>
+    <h2>A three-agent research pipeline that turns 5,000 accounts into a morning list reps actually want to call.</h2>
+    <p class="lede">Modeled on a cloud-native tax compliance company (Avalara-style ICP). Clay orchestrates overnight — pulling from Salesforce, scraping live web signal, and handing reps a short, playbook-ready list instead of a 5,000-row spreadsheet. Signal beats intent. Quality beats volume. Nothing touches the CRM without a human in the loop.</p>
+  </div>
+
+  <div class="grid g4">
+    <div class="kpi"><div class="klab">Accounts Scanned</div><div class="kval">5,000</div><div class="ksub">nightly · Salesforce + live web</div></div>
+    <div class="kpi"><div class="klab">Tier 1 Target</div><div class="kval">100</div><div class="ksub">high-confidence accounts / territory</div></div>
+    <div class="kpi"><div class="klab">Validation Gates</div><div class="kval">3</div><div class="ksub">human-reviewed before rep or CRM</div></div>
+    <div class="kpi"><div class="klab">Recycle Cap</div><div class="kval">2x</div><div class="ksub">closed-lost w/o new signal → deprioritized</div></div>
+  </div>
+
+  <div class="section-label">01 · Philosophy &amp; Design Principles</div>
+  <div class="grid g3">
+    <div class="value-card"><div class="vico">📡</div><h4>Signal Beats Intent</h4><p>Change events — new VP of Sales, VP of Tax, CFO, procurement leader, funding, M&amp;A, replatforming — outperform website-visit intent data. Prioritize triggers, not clicks.</p></div>
+    <div class="value-card"><div class="vico">🧬</div><h4>Clay as the Orchestration Layer</h4><p>Pull from Salesforce overnight, scrape against live web data, deliver a prioritized morning list — never a 5,000-row spreadsheet dumped on a rep.</p></div>
+    <div class="value-card"><div class="vico">🎯</div><h4>Quality Over Volume</h4><p>100 high-confidence A/B/C accounts per territory beats 5,000 mediocre touches. Fewer calls, higher conversion — every time.</p></div>
+    <div class="value-card"><div class="vico">🛑</div><h4>Human-in-the-Loop, Non-Negotiable</h4><p>Hard validation gates before anything touches the CRM or reaches a rep. No autonomous write access, ever.</p></div>
+    <div class="value-card"><div class="vico">⚙️</div><h4>Automation ≠ AI</h4><p>Automate the defined, repeatable process — list building, enrichment, cadence structure. Use AI for orchestration and judgment calls. Autonomous agents aren't ready to sell complex B2B tax compliance.</p></div>
+    <div class="value-card"><div class="vico">♻️</div><h4>Closed-Lost Recycling Is a Trap</h4><p>Accounts recycled more than twice without a new signal get flagged and deprioritized — no re-running the same dead list.</p></div>
+  </div>
+
+  <div class="section-label">02 · The Three-Agent Pipeline</div>
+  <div class="grid g3">
+    <div class="card accent">
+      <h3>🔍 Agent 1 — Market Trigger &amp; Signal</h3>
+      <div class="csub">Overnight · Clay-orchestrated · runs against the full account list</div>
+      <p class="fineprint" style="margin-bottom:10px">Scrapes and monitors for change events: new exec hires (CFO, VP Tax, VP Engineering, Procurement), M&amp;A, international expansion, replatforming (Shopify Plus, Magento, BigCommerce), economic nexus law changes, funding rounds. A "Tax Technology Manager" req is a signal.</p>
+      <ul style="margin:0 0 10px 18px;padding:0;font-size:13px;color:var(--ink-2);line-height:1.7">
+        <li>Extracts tech stack, est. transaction volume, headcount growth, multi-state / cross-border indicators</li>
+        <li>Sources: LinkedIn, Crunchbase, G2, Bombora, news feeds, SEC filings, job postings</li>
+      </ul>
+      <span class="tag blue">Output: signal score + trigger type + date + confidence</span>
+    </div>
+    <div class="card accent">
+      <h3>🧮 Agent 2 — Whitespace &amp; Prioritization</h3>
+      <div class="csub">Every morning · batches of 100 · before reps start</div>
+      <p class="fineprint" style="margin-bottom:10px">Evaluates enriched accounts against ICP: $10M–$2B revenue, 50–5,000 employees, multi-state/cross-border activity, SaaS/e-comm/mfg/healthcare/marketplace, manual tax process or legacy point solution (Vertex, TaxJar, homegrown).</p>
+      <ul style="margin:0 0 10px 18px;padding:0;font-size:13px;color:var(--ink-2);line-height:1.7">
+        <li>Incomplete/failed scrape → retry alternate source before flagging for human review</li>
+        <li>Cross-references Salesforce — no rep ever calls into an active cycle</li>
+      </ul>
+      <span class="tag green">Tier 1</span> <span class="tag amber">Tier 2</span> <span class="tag gray">Tier 3</span>
+    </div>
+    <div class="card accent">
+      <h3>✍️ Agent 3 — Playbook Generator</h3>
+      <div class="csub">Tier 1 accounts only · preserves compute &amp; quality</div>
+      <p class="fineprint" style="margin-bottom:10px">Maps the buying committee — CFO (audit exposure), VP Tax (manual-process pain), VP Eng/CTO (integration complexity), Procurement (consolidation, terms) — and generates a tailored playbook per account.</p>
+      <ul style="margin:0 0 10px 18px;padding:0;font-size:13px;color:var(--ink-2);line-height:1.7">
+        <li>Why now (tied to the specific trigger), pain points, solution mapping, opening line, CTA, persona sequence</li>
+        <li>Personalization rule: every touch references the trigger event — no generic outreach</li>
+      </ul>
+      <span class="tag blue">Output: CRM-ready playbook</span>
+    </div>
+  </div>
+
+  <div class="section-label">03 · Orchestration Logic</div>
+  <div class="card">
+    <h3>The Daily / Weekly / Monthly Rhythm</h3>
+    <div class="csub">Same cadence discipline as the rest of the SDR operating system</div>
+    <div class="cadence-row">
+      <div class="cad-col"><div class="cad-h">Overnight</div><div class="cad-b"><ul>
+        <li>Agent 1 runs via Clay — pulls master list from Salesforce, scrapes live web</li>
+        <li>Rate-limited, exponential backoff, proxy-integrated scraping (no direct LLM bulk search)</li>
+      </ul></div></div>
+      <div class="cad-col"><div class="cad-h">Each Morning</div><div class="cad-b"><ul>
+        <li>Agent 2 tiers the enriched output before reps start</li>
+        <li>Agent 3 triggers only for Tier 1 — Gate 1 human review first</li>
+      </ul></div></div>
+      <div class="cad-col"><div class="cad-h">Weekly</div><div class="cad-b"><ul>
+        <li>Revolving model: reps work 100 accounts; net-new Tier 1 added, low-signal retired</li>
+        <li>Gate 3 sync — SDR leader + reps feed field learnings back into Agent 1 triggers</li>
+      </ul></div></div>
+      <div class="cad-col"><div class="cad-h">Monthly</div><div class="cad-b"><ul>
+        <li>Full recalibration: signal conversion data, sales feedback, campaign calendar, nexus law changes</li>
+        <li>Trigger types below conversion threshold flagged for review</li>
+      </ul></div></div>
+    </div>
+  </div>
+
+  <div class="section-label">04 · Human-in-the-Loop Validation Gates</div>
+  <div class="card accent">
+    <table>
+      <tr><th>Gate</th><th>When</th><th>What Gets Checked</th></tr>
+      <tr class="hl"><td><b>Gate 1</b></td><td>Agent 2 → Agent 3 handoff</td><td>Human reviews the full Tier 1 batch for obvious misses or misclassifications</td></tr>
+      <tr><td><b>Gate 2</b></td><td>Playbook → rep or CRM</td><td>Spot-check 10% of records for hallucinated data, stale signals, wrong personas</td></tr>
+      <tr class="hl"><td><b>Gate 3</b></td><td>Weekly, standing</td><td>SDR leader ↔ sales team sync — field signal feeds back into Agent 1 trigger definitions</td></tr>
+    </table>
+    <p class="fineprint">No autonomous write access to Salesforce at any point in the pipeline — every gate is a human decision, not a rubber stamp.</p>
+  </div>
+
+  <div class="grid g2">
+    <div class="card">
+      <h3>📐 Scaling Rules</h3>
+      <div class="csub">Ground truth before batch, never before manual</div>
+      <div class="init" style="padding:9px 0"><div class="ico">🧪</div><div class="itxt"><h4>Solve Manually First</h4><p>Hand-research 10 accounts end-to-end; that exact workflow becomes the agent's ground-truth example set.</p></div></div>
+      <div class="init" style="padding:9px 0"><div class="ico">🛡️</div><div class="itxt"><h4>Proxy-Integrated Scraping</h4><p>Bright Data or ScraperAPI to avoid IP blocking at scale — never direct LLM web search for bulk scraping.</p></div></div>
+      <div class="init" style="padding:9px 0"><div class="ico">⏱️</div><div class="itxt"><h4>Rate Limits + Backoff</h4><p>Every API call rate-limited with exponential backoff and retry logic built in from day one.</p></div></div>
+    </div>
+    <div class="card">
+      <h3>🧱 Tech Stack</h3>
+      <div class="csub">Orchestration-first, human-gated at the CRM boundary</div>
+      <table>
+        <tr><th>Layer</th><th>Tooling</th></tr>
+        <tr class="hl"><td>Orchestration</td><td>Clay + n8n or LangGraph</td></tr>
+        <tr><td>Scraping</td><td>Bright Data or ScraperAPI</td></tr>
+        <tr class="hl"><td>Enrichment</td><td>Crunchbase API, LinkedIn Sales Navigator, Bombora</td></tr>
+        <tr><td>LLM</td><td>Claude — playbook generation</td></tr>
+        <tr class="hl"><td>Storage</td><td>Postgres or Airtable — iteration tracking</td></tr>
+        <tr><td>CRM Sync</td><td>Salesforce REST API, human gate before write</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="section-label">05 · Output Schema</div>
+  <div class="card">
+    <h3>Per-Account Record — CSV + CRM-Ready JSON</h3>
+    <div class="csub">One row, every field a rep or the CRM needs</div>
+    <div class="badge-row" style="margin-top:2px">
+      <span class="gbadge">account_name</span><span class="gbadge">domain</span><span class="gbadge">tier</span>
+      <span class="gbadge">signal_trigger</span><span class="gbadge">signal_date</span><span class="gbadge">signal_confidence</span>
+      <span class="gbadge">industry</span><span class="gbadge">revenue_range</span><span class="gbadge">employee_count</span>
+      <span class="gbadge">tech_stack</span><span class="gbadge">existing_avalara_products</span>
+      <span class="gbadge">buying_committee_contacts[]</span><span class="gbadge">pain_point_summary</span>
+      <span class="gbadge">solution_mapping</span><span class="gbadge">outreach_narrative</span>
+      <span class="gbadge">persona_sequence</span><span class="gbadge">last_enriched_date</span>
+      <span class="gbadge">human_validated (bool)</span>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p>Build order: scaffold the project structure, then build Agent 1 first. Before any batch processing logic gets written, hand-research 10 real accounts end-to-end — that becomes the ground truth the agent is built against, not the other way around.</p>
+    <div class="qa">— Next Step, Before Writing Batch Logic</div>
+  </div>
+</section>
+
 
 </div>
 
@@ -1369,7 +1508,8 @@ const tabs=[
   {id:'people',n:'04',l:'People & Org'},
   {id:'gtm',n:'05',l:'GTM Playbook'},
   {id:'aiagents',n:'06',l:'AI Agents'},
-  {id:'culture',n:'07',l:'Culture & Team'}
+  {id:'culture',n:'07',l:'Culture & Team'},
+  {id:'gtmagent',n:'08',l:'GTM Agent System'}
 ];
 const nav=document.getElementById('nav');
 tabs.forEach((t,i)=>{
